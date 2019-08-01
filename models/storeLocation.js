@@ -4,20 +4,28 @@ const MongoClient = require("../helpers/database").MongoConnection;
 const GeoCoder = require("../helpers/geocoder");
 
 const storeLocation = {
+    /*
+    * gets lat long from a given place name
+    * */
     getCoordinates: function (placeName) {
         return GeoCoder.getCoordinates(placeName);
     },
+    /*
+    * searches mongodb against the coordinated received from the this.getCoordinates() to find a suitable match
+    * */
     getNearestStore: function (placeName) {
         return this.getCoordinates(placeName)
                     .then(location => {
 
 
-                        // let latitude = location[0].latitude;
-                        // let longitude = location[0].longitude;
-                        // let latitude = 48.1949526;
-                        // let longitude = 16.3431347;
-                        let latitude = 48.1682608;
-                        let longitude = 16.2567616;
+                        let latitude = location[0].latitude;
+                        let longitude = location[0].longitude;
+
+                        //for testing some cases
+                        // let latitude = 48.1682608;
+                        // let longitude = 16.2567616;
+                        // let latitude = 0;
+                        // let longitude = 0;
 
                         return MongoClient().then(function (db, error) {
                             if (error) throw error;

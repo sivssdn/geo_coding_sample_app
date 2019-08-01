@@ -12,17 +12,18 @@
 <div class="container">
 
     <div class="row">
-        <div class="col l5 push-l1">
+        <div class="col l8 push-l1">
             <h1><%= title %></h1>
             <p>Get your nearest store location</p>
             <br>
-            <form method="post" action="/get-store">
+            <form id="location_form">
                 <div class="input-field">
-                    <input name="location_name" id="location_name" type="text" class="validate">
+                    <input id="location_name" type="text" class="validate" required>
                     <label for="location_name">Enter Location</label>
                 </div>
                 <button type="submit" class="btn-large blue">SUBMIT</button>
             </form>
+            <p><span id="store_location"></span></p>
         </div>
     </div>
 
@@ -31,4 +32,26 @@
 </body>
 <script type="text/javascript" src="/javascripts/jquery.js"></script>
 <script type="text/javascript" src="/javascripts/materialize_0_100_2_min.js"></script>
+<script>
+    document.getElementById("location_form").addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var formData = {};
+        formData["location_name"] = document.getElementById("location_name").value;
+        $.ajax({
+            type: "POST",
+            url: "get-store",
+            data: formData,
+            dataType: "text",
+            success: function (response) {
+                    response = JSON.parse(response);
+                    document.getElementById("store_location").innerHTML = "Store Found: "+ response["storeName"];
+            },
+            error: function () {
+                console.log("Unable to send Request");
+                alert("Unable to send Request");
+            }
+        });
+    });
+
+</script>
 </html>
