@@ -8,6 +8,9 @@
 
 For mongo, the sample geo data (from .kml file) is present in file data.txt inside helpers folder.
 
+Please note:
+1. Testing libraries not added as dev dependencies because I want to replicate my entire environment to your PC.
+2. In real production, location could be cached and not queries everytime like in this app.
 
 Things I would have done if I had time
 -
