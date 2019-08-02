@@ -11,7 +11,7 @@ For mongo, the sample geo data (from .kml file) is present in file data.txt insi
 
 Things I would have done if I had time
 -
-- Dockerized the app into backend and db containers, so no need for setup
+- Dockerize the app into backend and db containers, so no need for setup
 - Searched for a better geocoding API with increased quota
 - Write tests, without this application is incomplete. Haven't got a chance to test app extensively.
 - Revisited code to refractor and comment more extensively

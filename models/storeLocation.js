@@ -17,9 +17,13 @@ const storeLocation = {
         return this.getCoordinates(placeName)
                     .then(location => {
 
+                        let latitude = 0;
+                        let longitude = 0;
 
-                        let latitude = location[0].latitude;
-                        let longitude = location[0].longitude;
+                        if(location.length > 0){
+                            latitude = location[0].latitude;
+                            longitude = location[0].longitude;
+                        }
 
                         //for testing some cases
                         // let latitude = 48.1682608;

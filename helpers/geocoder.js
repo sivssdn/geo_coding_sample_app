@@ -9,9 +9,9 @@ dotenv.config({
 
 
 const options = {
-    provider: 'google',
+    provider: 'opencage',
     httpAdapter: 'https',
-    apiKey: process.env.GEOCODING_API_KEY,
+    apiKey: process.env.OCD_API_KEY,
     formatter: null
 };
 
@@ -19,7 +19,6 @@ const geocoder = NodeGeocoder(options);
 
 module.exports = {
     getCoordinates: function (placeName) {
-        //return new Promise((resolve, reject) => {resolve(1)});
         return geocoder.geocode(placeName);
     }
 };

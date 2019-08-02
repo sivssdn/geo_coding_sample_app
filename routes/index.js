@@ -12,6 +12,7 @@ router.post('/get-store', function(req, res, next) {
   storeLocation.getNearestStore(req.body.location_name)
       .then((storeDetails) => {
           if(storeDetails != null) {
+console.log(storeDetails.Name);
               res.json({storeName: storeDetails.Name});
           }else{
               res.json({storeName: "Not Found"});
