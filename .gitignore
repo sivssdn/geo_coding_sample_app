@@ -6,3 +6,5 @@ tmp
 *.iml
 
 front_end/node_modules
+
+docker-compose.yml

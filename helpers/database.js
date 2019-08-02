@@ -8,7 +8,7 @@ dotenv.config({
     path: __dirname + path.sep + ".." + path.sep + ".env"
 });
 
-const MONGO_URL = "mongodb://localhost:27017/"+process.env.DB;
+const MONGO_URL = "mongodb://"+process.env.DB_HOST+":27017/"+process.env.DB;
 
 
 module.exports = {
